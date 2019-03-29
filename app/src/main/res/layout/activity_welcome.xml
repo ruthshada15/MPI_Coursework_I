@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".WelcomeActivity">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="391dp"
+        android:layout_height="328dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="0dp"
+        app:srcCompat="@drawable/redav1"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="0dp" />
+
+    <EditText
+        android:id="@+id/txtemail"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="64dp"
+        android:layout_marginBottom="343dp"
+        android:ems="10"
+        android:hint="Email"
+
+        android:inputType="textPersonName|textEmailAddress"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="64dp" />
+
+    <EditText
+        android:id="@+id/txtpassword"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="65dp"
+        android:layout_marginBottom="273dp"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="65dp" />
+
+    <Button
+        android:id="@+id/btnlogin"
+        android:layout_width="180dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="106dp"
+        android:layout_marginBottom="205dp"
+        android:background="#009975"
+        android:text="Log In"
+        android:textAllCaps="false"
+        android:textSize="23sp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="106dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="47dp"
+        android:layout_marginBottom="148dp"
+        android:text="Don't have an account?"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="47dp" />
+
+    <Button
+        android:id="@+id/btnsignup"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="148dp"
+        android:layout_marginBottom="105dp"
+        android:background="@color/colorAccent"
+        android:text="Sign Up"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="148dp" />
+
+</RelativeLayout>

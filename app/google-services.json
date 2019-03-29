@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "472392161400",
+    "firebase_url": "https://reda-6a861.firebaseio.com",
+    "project_id": "reda-6a861",
+    "storage_bucket": "reda-6a861.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:472392161400:android:d494d077651eacc7",
+        "android_client_info": {
+          "package_name": "com.example.roda"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "472392161400-e1imfo788bvho198r66svdjuha9bbr5e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.roda",
+            "certificate_hash": "cb494732c37c9095ca69498aa91c8c9693d9c9e3"
+          }
+        },
+        {
+          "client_id": "472392161400-2kmaqerar9t0p8g0dtdia43dnb913rnt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBAfUlxWqaotTlYKBtBxgRSk_UhofBqmNE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "472392161400-2kmaqerar9t0p8g0dtdia43dnb913rnt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

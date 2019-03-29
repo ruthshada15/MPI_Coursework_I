@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChooseActivity">
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="401dp"
+        android:layout_height="313dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/redav1" />
+
+    <Button
+        android:id="@+id/btndriver"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="256dp"
+        android:background="#009975"
+        android:text="I am a Driver"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        android:textSize="20sp"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.618" />
+
+    <Button
+        android:id="@+id/btncustomer"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_alignStart="@+id/btndriver"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="173dp"
+        android:background="#009975"
+        android:text="I am a Customer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        android:textSize="20sp"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="500dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="400dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="7dp"
+        android:layout_marginBottom="343dp"
+        android:text="Which one are you?"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:textColor="@color/colorPrimaryDark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499"
+        tools:layout_editor_absoluteX="6dp" />
+</RelativeLayout>
