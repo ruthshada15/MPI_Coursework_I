@@ -94,6 +94,7 @@ public class CustomerSignupActivity extends AppCompatActivity {
 
 
                     if (task.isSuccessful()) {
+
                         // Toast.makeText(getApplicationContext(), id, Toast.LENGTH_SHORT).show();
                         loadingBar.dismiss();
 
