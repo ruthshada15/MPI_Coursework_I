@@ -1,4 +1,4 @@
-package com.example.roda;
+package com.example.redaapp;
 
 import android.content.Intent;
 import android.os.Bundle;

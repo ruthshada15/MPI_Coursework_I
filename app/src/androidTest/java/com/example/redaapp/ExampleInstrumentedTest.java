@@ -1,4 +1,4 @@
-package com.example.roda;
+package com.example.redaapp;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

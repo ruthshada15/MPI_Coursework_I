@@ -1,4 +1,4 @@
-package com.example.roda;
+package com.example.redaapp;
 
 import org.junit.Test;
 

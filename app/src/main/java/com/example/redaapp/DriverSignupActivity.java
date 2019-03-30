@@ -1,4 +1,4 @@
-package com.example.roda;
+package com.example.redaapp;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

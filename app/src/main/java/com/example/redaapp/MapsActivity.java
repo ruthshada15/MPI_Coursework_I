@@ -1,4 +1,4 @@
-package com.example.roda;
+package com.example.redaapp;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
@@ -97,7 +97,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onLocationChanged(Location location) {
         lastLocation = location;
-        
+
         LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
         mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
         mMap.animateCamera(CameraUpdateFactory.zoomTo(12));
