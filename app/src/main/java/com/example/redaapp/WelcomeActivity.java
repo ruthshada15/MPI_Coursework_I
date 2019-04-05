@@ -6,20 +6,38 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.redaapp.R;
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.SignInButton;
+import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class WelcomeActivity extends AppCompatActivity {
- private Button login,signup;
+    private static final String TAG = ;
+    private Button login;
  private EditText stremail, strpassword;
+ private TextView signup;
+ private SignInButton googlesignin;
+
+ private static final int RC_SIGN_IN = 1;
+
+ private GoogleApiClient mGoogleSignInClient;
 
  FirebaseAuth myAuth;
 
@@ -33,9 +51,38 @@ public class WelcomeActivity extends AppCompatActivity {
         stremail = (EditText) findViewById(R.id.txtemail);
         strpassword = (EditText) findViewById(R.id.txtpassword);
         login = (Button) findViewById(R.id.btnlogin);
-        signup = (Button) findViewById(R.id.btnsignup);
+        signup = (TextView) findViewById(R.id.btnsignup);
+        googlesignin = (SignInButton) findViewById(R.id.googlesignin);
+
 
         loadingBar = new ProgressDialog(this);
+
+        //Configure Google Sign In
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
+
+        mGoogleSignInClient = new GoogleApiClient.Builder(getApplicationContext())
+                .enableAutoManage(this, new GoogleApiClient.OnConnectionFailedListener() {
+                    @Override
+                    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+
+                        Toast.makeText(getApplicationContext(), "You got an Error here!",Toast.LENGTH_LONG).show();
+
+                    }
+                })
+                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
+                .build();
+
+        //google signin OnClickListener
+
+        googlesignin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                signIn();
+            }
+        });
 
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,12 +97,13 @@ public class WelcomeActivity extends AppCompatActivity {
                 String email = stremail.getText().toString().trim();
                 String password = strpassword.getText().toString().trim();
 
-                signIn(email,password);
+                LogIn(email,password);
             }
         });
     }
 
-    private void signIn (String a,String b){
+
+    private void LogIn (String a,String b){
         if (TextUtils.isEmpty(a)) {
             stremail.setError("Enter your Email Adress");
             stremail.requestFocus();
@@ -99,6 +147,30 @@ public class WelcomeActivity extends AppCompatActivity {
 
                 }
             });
+        }
+    }
+
+    private void signIn() {
+        Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleSignInClient);
+        startActivityForResult(signInIntent, RC_SIGN_IN);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
+        if (requestCode == RC_SIGN_IN) {
+            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+            try {
+                // Google Sign In was successful, authenticate with Firebase
+                GoogleSignInAccount account = task.getResult(ApiException.class);
+                firebaseAuthWithGoogle(account);
+            } catch (ApiException e) {
+                // Google Sign In failed, update UI appropriately
+                Log.w(TAG, "Google sign in failed", e);
+                // ...
+            }
         }
     }
 }

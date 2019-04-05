@@ -8,40 +8,75 @@
     tools:context="com.example.redaapp.CustomerSignupActivity">
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/customerprofilepicture"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="189dp"
         android:layout_alignParentTop="true"
 
         android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="82dp"
-        android:layout_marginRight="82dp"
         app:srcCompat="@drawable/dp" />
+
+    <EditText
+        android:id="@+id/txtcustomerfname"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/customerprofilepicture"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="269dp"
+
+        android:ems="10"
+        android:hint="First Name"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/txtcustomerlname"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/txtcustomerfname"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="-250dp"
+
+        android:ems="10"
+        android:hint="Last Name"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/txtcustomerphonenumber"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/txtcustomerlname"
+        android:layout_alignParentTop="true"
+
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="350dp"
+
+        android:ems="10"
+        android:hint="Phone Number"
+
+        android:inputType="phone" />
 
     <EditText
         android:id="@+id/signuptxtemail"
         android:layout_width="350dp"
         android:layout_height="50dp"
-        android:layout_below="@id/imageView4"
-        android:layout_alignParentTop="true"
+        android:layout_below="@id/customerprofilepicture"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="200dp"
 
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="282dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="48dp"
         android:ems="10"
         android:hint="Email"
-
         android:inputType="textPersonName|textEmailAddress" />
+
 
     <EditText
         android:id="@+id/signuptxtpassword"
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:layout_below="@id/signuptxtemail"
-        android:layout_marginLeft="48dp"
+        android:layout_marginStart="48dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="269dp"
 
@@ -49,13 +84,28 @@
         android:hint="Password"
         android:inputType="textPassword" />
 
+
+
+    <EditText
+        android:id="@+id/txtcustomerconfirmpassword"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/signuptxtpassword"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="-260dp"
+        android:layout_marginBottom="269dp"
+
+        android:ems="10"
+        android:hint="Confirm Password"
+        android:inputType="textPassword" />
+
     <Button
         android:id="@+id/btngetstarted"
         android:layout_width="200dp"
         android:layout_height="60dp"
-        android:layout_below="@id/signuptxtpassword"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="-50dp"
+        android:layout_below="@id/txtcustomerconfirmpassword"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="-250dp"
         android:layout_marginBottom="150dp"
         android:background="@color/colorPrimary"
         android:text="Get Started"
