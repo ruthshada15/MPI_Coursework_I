@@ -25,21 +25,27 @@ import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.GoogleAuthProvider;
 
 public class WelcomeActivity extends AppCompatActivity {
-    private static final String TAG = ;
+    private static final String TAG = "MAIN_ACTIVITY";
     private Button login;
  private EditText stremail, strpassword;
  private TextView signup;
  private SignInButton googlesignin;
 
+ private FirebaseAuth mAuth;
+ private FirebaseAuth.AuthStateListener mAuthListener;
+
  private static final int RC_SIGN_IN = 1;
 
  private GoogleApiClient mGoogleSignInClient;
 
- FirebaseAuth myAuth;
+
 
  private ProgressDialog loadingBar;
     @Override
@@ -47,7 +53,21 @@ public class WelcomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
-        myAuth = FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance();
+
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+
+                if (firebaseAuth.getCurrentUser() != null){
+
+                    startActivity(new Intent(getApplicationContext(), FillInActivity.class));
+
+                }
+
+            }
+        };
+
         stremail = (EditText) findViewById(R.id.txtemail);
         strpassword = (EditText) findViewById(R.id.txtpassword);
         login = (Button) findViewById(R.id.btnlogin);
@@ -75,14 +95,7 @@ public class WelcomeActivity extends AppCompatActivity {
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
 
-        //google signin OnClickListener
 
-        googlesignin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                signIn();
-            }
-        });
 
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,10 +113,20 @@ public class WelcomeActivity extends AppCompatActivity {
                 LogIn(email,password);
             }
         });
-    }
+
+        //google signin OnClickListener
+
+        googlesignin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                signIn();
+            }
+        });
+    } //end of onCreate
 
 
-    private void LogIn (String a,String b){
+
+    private void LogIn (String a, String b){
         if (TextUtils.isEmpty(a)) {
             stremail.setError("Enter your Email Adress");
             stremail.requestFocus();
@@ -129,11 +152,11 @@ public class WelcomeActivity extends AppCompatActivity {
             loadingBar.setTitle("User Login");
             loadingBar.setMessage("Please Wait");
             loadingBar.show();
-            myAuth.signInWithEmailAndPassword(a, b).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            mAuth.signInWithEmailAndPassword(a, b).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
 
-                    String id = myAuth.getCurrentUser().getUid();
+                    String id = mAuth.getCurrentUser().getUid();
 
 
                     if (task.isSuccessful()) {
@@ -148,6 +171,15 @@ public class WelcomeActivity extends AppCompatActivity {
                 }
             });
         }
+    }
+
+    //GOOGLE SIGN IN
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        mAuth.addAuthStateListener(mAuthListener);
     }
 
     private void signIn() {
@@ -172,5 +204,37 @@ public class WelcomeActivity extends AppCompatActivity {
                 // ...
             }
         }
+    }
+
+    private void firebaseAuthWithGoogle (GoogleSignInAccount account ){
+
+        AuthCredential credential = GoogleAuthProvider.getCredential(account.getIdToken(), null);
+
+        mAuth.signInWithCredential(credential)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d(TAG, "signInWithCredential:success");
+
+
+                           /* FirebaseUser user = mAuth.getCurrentUser();
+                            updateUI(user);  COMMENTED COZ I DON'T NEED THIS*/
+
+
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w(TAG, "signInWithCredential:failure", task.getException());
+                            Toast.makeText(getApplicationContext(), "Authentication Failed.", Toast.LENGTH_SHORT).show();
+
+                            // updateUI(null); THIS NEITHER
+                        }
+
+                        // ...
+                    }
+                });
+
+
     }
 }
