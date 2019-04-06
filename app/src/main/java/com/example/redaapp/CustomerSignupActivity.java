@@ -2,6 +2,8 @@ package com.example.redaapp;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +12,8 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.redaapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -20,9 +24,15 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.io.FileNotFoundException;
+
 public class CustomerSignupActivity extends AppCompatActivity {
     private EditText stremail, strpassword, strfname, strlname, strphonenum, strconfirmpass;
     private Button getstarted;
+
+    private ImageView customerprofilepic;
+    private Uri imageUri = null;
+    private final int select_photo = 1;
 
     private ProgressDialog loadingBar;
 
@@ -39,6 +49,7 @@ public class CustomerSignupActivity extends AppCompatActivity {
         myAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference();
+
         loadingBar = new ProgressDialog(this);
 
         stremail = (EditText) findViewById(R.id.signuptxtemail);
@@ -48,6 +59,8 @@ public class CustomerSignupActivity extends AppCompatActivity {
         strphonenum = (EditText) findViewById(R.id.txtcustomerphonenumber);
         strconfirmpass = (EditText) findViewById(R.id.txtcustomerconfirmpassword);
         getstarted = (Button) findViewById(R.id.btngetstarted);
+
+        customerprofilepic = (ImageView) findViewById(R.id.customerprofilepicture);
 
         getstarted.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,6 +78,8 @@ public class CustomerSignupActivity extends AppCompatActivity {
 
             }
         });
+            onclickimage();
+
     }
 
 
@@ -159,6 +174,55 @@ public class CustomerSignupActivity extends AppCompatActivity {
         FirebaseUser user = myAuth.getCurrentUser();
         databaseReference.child(user.getUid()).setValue(customerInformation);
 
+    }
+
+
+    //selecting and displaying image
+
+    private void onclickimage(){
+        customerprofilepic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent in = new Intent(Intent.ACTION_PICK);
+                in.setType("image/*");
+                startActivityForResult(in, select_photo);
+            }
+        });
+    }
+
+
+    protected void onActivityResult(int requestcode, int resultcode,
+                                    Intent imagereturnintent) {
+        super.onActivityResult(requestcode, resultcode, imagereturnintent);
+
+        if (requestcode == select_photo)
+        {
+            if (resultcode == RESULT_OK) {
+                try {
+
+                    imageUri = imagereturnintent.getData();
+
+                    Bitmap bitmap = Utils.decodeUri(getApplicationContext(),
+                            imageUri, 200);// call
+
+                    if (bitmap != null) {
+                        customerprofilepic.setImageBitmap(bitmap);
+
+
+                    } else {
+                        Toast.makeText(getApplicationContext(),
+                                "Error while decoding image.",
+                                Toast.LENGTH_SHORT).show();
+                    }
+                } catch (FileNotFoundException e) {
+
+                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(), "File not found.",
+                            Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
     }
 
 
