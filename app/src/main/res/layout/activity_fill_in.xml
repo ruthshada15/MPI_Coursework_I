@@ -8,7 +8,7 @@
     tools:context="com.example.redaapp.CustomerSignupActivity">
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/customerprofilepicture"
+        android:id="@+id/gcustomerprofilepicture"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_alignParentTop="true"
@@ -30,10 +30,10 @@
         app:srcCompat="@drawable/dp" />
 
     <EditText
-        android:id="@+id/txtcustomerfname"
+        android:id="@+id/gtxtcustomerfname"
         android:layout_width="350dp"
         android:layout_height="50dp"
-        android:layout_below="@id/customerprofilepicture"
+        android:layout_below="@id/gcustomerprofilepicture"
 
         android:layout_alignParentStart="true"
 
@@ -43,15 +43,15 @@
         android:ems="10"
         android:hint="First Name"
         android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/txtcustomerphonenumber"
+        app:layout_constraintBottom_toTopOf="@+id/gtxtcustomerphonenumber"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/txtcustomerlname"
+        android:id="@+id/gtxtcustomerlname"
         android:layout_width="350dp"
         android:layout_height="50dp"
-        android:layout_below="@id/txtcustomerfname"
+        android:layout_below="@id/gtxtcustomerfname"
 
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
@@ -59,15 +59,15 @@
         android:ems="10"
         android:hint="Last Name"
         android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/txtcustomerfname"
+        app:layout_constraintBottom_toTopOf="@+id/gtxtcustomerfname"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/txtcustomerphonenumber"
+        android:id="@+id/gtxtcustomerphonenumber"
         android:layout_width="350dp"
         android:layout_height="50dp"
-        android:layout_below="@id/txtcustomerlname"
+        android:layout_below="@id/gtxtcustomerlname"
         android:layout_alignParentStart="true"
 
         android:layout_alignParentTop="true"
@@ -79,17 +79,17 @@
         android:ems="10"
         android:hint="Phone Number"
         android:inputType="phone"
-        app:layout_constraintBottom_toTopOf="@+id/btngetstarted"
+        app:layout_constraintBottom_toTopOf="@+id/gbtnlogin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
 
     <Button
-        android:id="@+id/btngetstarted"
+        android:id="@+id/gbtnlogin"
         android:layout_width="200dp"
         android:layout_height="65dp"
-        android:layout_below="@id/txtcustomerphonenumber"
-        android:layout_marginBottom="60dp"
+        android:layout_below="@id/gtxtcustomerphonenumber"
+        android:layout_marginBottom="100dp"
         android:background="@color/colorPrimary"
         android:text="Login"
         android:textAllCaps="false"
@@ -108,13 +108,14 @@
         android:layout_alignParentEnd="true"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="48dp"
         android:text="You still need to provide these Informations"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/txtcustomerlname"
+        app:layout_constraintBottom_toTopOf="@+id/gtxtcustomerlname"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

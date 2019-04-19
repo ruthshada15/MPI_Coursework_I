@@ -29,6 +29,7 @@
 
         android:layout_marginTop="15dp"
         android:layout_marginBottom="269dp"
+        android:layout_marginStart="20dp"
 
         android:ems="10"
         android:hint="First Name"
@@ -41,6 +42,7 @@
         android:layout_below="@id/txtcustomerfname"
 
         android:layout_marginTop="-250dp"
+        android:layout_marginStart="20dp"
 
         android:ems="10"
         android:hint="Last Name"
@@ -53,7 +55,7 @@
         android:layout_below="@id/txtcustomerlname"
         android:layout_alignParentTop="true"
 
-
+        android:layout_marginStart="20dp"
         android:layout_marginTop="350dp"
 
         android:ems="10"
@@ -68,7 +70,7 @@
         android:layout_below="@id/customerprofilepicture"
 
         android:layout_marginTop="200dp"
-
+        android:layout_marginStart="20dp"
         android:ems="10"
         android:hint="Email"
         android:inputType="textPersonName|textEmailAddress" />
@@ -79,7 +81,7 @@
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:layout_below="@id/signuptxtemail"
-
+        android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="269dp"
 
@@ -94,7 +96,7 @@
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:layout_below="@id/signuptxtpassword"
-
+        android:layout_marginStart="20dp"
         android:layout_marginTop="-260dp"
         android:layout_marginBottom="269dp"
 
