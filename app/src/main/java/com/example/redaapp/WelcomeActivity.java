@@ -55,7 +55,7 @@ public class WelcomeActivity extends AppCompatActivity {
         @Override
         public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
             if (firebaseAuth.getCurrentUser() != null) {
-                startActivity(new Intent(getApplicationContext(), MapsActivity.class));
+                startActivity(new Intent(getApplicationContext(), LandingPageActivity.class));
             }
         }
     };
@@ -210,7 +210,7 @@ public class WelcomeActivity extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         // Toast.makeText(getApplicationContext(), id, Toast.LENGTH_SHORT).show();
                         loadingBar.dismiss();
-                        startActivity(new Intent(getApplicationContext(), MapsActivity.class));
+                        startActivity(new Intent(getApplicationContext(), LandingPageActivity.class));
                     } else {
                         // Toast.makeText(getApplicationContext(), "nooo", Toast.LENGTH_SHORT).show();
                         loadingBar.dismiss();
@@ -240,7 +240,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
         if (user != null){
             //user is already connected so we need to redirect him to home page
-            startActivity(new Intent(getApplicationContext(), MapsActivity.class));
+            startActivity(new Intent(getApplicationContext(), LandingPageActivity.class));
 
         }
 

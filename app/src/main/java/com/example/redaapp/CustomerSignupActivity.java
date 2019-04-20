@@ -162,7 +162,7 @@ public class CustomerSignupActivity extends AppCompatActivity {
                             saveCustomerInformation();
                             uploadImage();
 
-                        startActivity(new Intent(getApplicationContext(), MapsActivity.class));
+                        startActivity(new Intent(getApplicationContext(), LandingPageActivity.class));
                     } else {
                         // Toast.makeText(getApplicationContext(), "nooo", Toast.LENGTH_SHORT).show();
                         loadingBar.dismiss();
