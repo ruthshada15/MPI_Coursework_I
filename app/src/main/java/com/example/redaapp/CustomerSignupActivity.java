@@ -16,14 +16,20 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.io.FileNotFoundException;
+import java.util.UUID;
 
 public class CustomerSignupActivity extends AppCompatActivity {
     private EditText stremail, strpassword, strfname, strlname, strphonenum, strconfirmpass;
@@ -38,6 +44,8 @@ public class CustomerSignupActivity extends AppCompatActivity {
     private FirebaseAuth myAuth;
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference databaseReference;
+    private FirebaseStorage firebaseStorage;
+    private StorageReference storageReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +56,8 @@ public class CustomerSignupActivity extends AppCompatActivity {
         myAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference();
+        firebaseStorage = FirebaseStorage.getInstance();
+        storageReference = firebaseStorage.getReference();
 
         loadingBar = new ProgressDialog(this);
 
@@ -150,6 +160,7 @@ public class CustomerSignupActivity extends AppCompatActivity {
                         loadingBar.dismiss();
 
                             saveCustomerInformation();
+                            uploadImage();
 
                         startActivity(new Intent(getApplicationContext(), MapsActivity.class));
                     } else {
@@ -224,5 +235,29 @@ public class CustomerSignupActivity extends AppCompatActivity {
         }
     }
 
+private void uploadImage() {
 
+    if (imageUri != null) {
+        StorageReference riversRef = storageReference.child("images/" + UUID.randomUUID().toString());
+
+        riversRef.putFile(imageUri)
+                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        // Get a URL to the uploaded content
+                        //Uri downloadUrl = taskSnapshot.getDownloadUrl();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception exception) {
+
+                        Toast.makeText(getApplicationContext(), "Image Upload Failed!" + exception.getMessage(), Toast.LENGTH_LONG).show();
+
+                    }
+                });
+
+    }
+
+}
 }

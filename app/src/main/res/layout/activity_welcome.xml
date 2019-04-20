@@ -1,144 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorAccent"
+    android:padding="20dp"
     tools:context="com.example.redaapp.WelcomeActivity">
 
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="398dp"
-        android:layout_height="275dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_centerInParent="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/txtemail"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/redav1" />
+        android:layout_width="match_parent"
+        android:layout_height="270dp"
+        android:src="@drawable/redav1"
+        />
 
     <EditText
         android:id="@+id/txtemail"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerInParent="true"
-        android:layout_marginStart="46dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="381dp"
-        android:ems="10"
-        android:hint="Email"
-        android:inputType="textPersonName|textEmailAddress"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="318dp" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint=" Email"
+        android:inputType="textEmailAddress"
+        android:textSize="22sp"
+        android:drawableLeft="@drawable/emailicon"
+        android:background="@drawable/roundfield"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:layout_marginTop="5dp"
+        />
 
     <EditText
         android:id="@+id/txtpassword"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerInParent="true"
-        android:layout_marginStart="43dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="310dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint=" Password"
         android:ems="10"
-        android:hint="Password"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/btnlogin"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtemail" />
+        android:textSize="22sp"
+        android:drawableLeft="@drawable/passicon"
+        android:background="@drawable/roundfield"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:layout_marginTop="15dp"
+        />
 
     <Button
         android:id="@+id/btnlogin"
-        android:layout_width="180dp"
-        android:layout_height="50dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerInParent="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="121dp"
-        android:layout_marginBottom="236dp"
-        android:background="#009975"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:text="Log In"
         android:textAllCaps="false"
         android:textSize="23sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="440dp" />
-
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="300dp"
-        android:layout_height="43dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerInParent="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="51dp"
-        android:layout_marginBottom="186dp"
-        android:text="Don't have an account?"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnlogin"
-        app:layout_constraintVertical_bias="0.0" />
+        android:background="@drawable/roundbtn"
+        />
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/googlesignin"
-        android:layout_width="180dp"
-        android:layout_height="64dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerInParent="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="113dp"
-        android:layout_marginBottom="113dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnsignup"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+
+        >
 
     </com.google.android.gms.common.SignInButton>
 
-    <TextView
-        android:id="@+id/btnsignup"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerInParent="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="167dp"
-        android:layout_marginBottom="70dp"
-        android:background="@color/colorAccent"
-        android:text="Sign Up"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textColor="@color/colorPrimary"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/googlesignin" />
+    <LinearLayout
+        android:layout_width="400dp"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp"
+        >
 
-</RelativeLayout>
+        <TextView
+            android:layout_width="180dp"
+            android:layout_height="50dp"
+            android:text="Don't have an account?"
+            android:textAlignment="center"
+            android:textSize="17sp"
+            android:layout_marginLeft="20dp"/>
+
+        <TextView
+            android:id="@+id/btnsignup"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:text="Sign Up"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp"
+
+            />
+
+    </LinearLayout>
+
+
+</LinearLayout>

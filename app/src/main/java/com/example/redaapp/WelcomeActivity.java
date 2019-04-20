@@ -134,6 +134,7 @@ public class WelcomeActivity extends AppCompatActivity {
                 .requestEmail()
                 .build();
 
+
         mGoogleSignInClient = new GoogleApiClient.Builder(getApplicationContext())
                 .enableAutoManage(this, new GoogleApiClient.OnConnectionFailedListener() {
                     @Override
@@ -148,7 +149,7 @@ public class WelcomeActivity extends AppCompatActivity {
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), ChooseActivity.class));
+                startActivity(new Intent(getApplicationContext(), CustomerSignupActivity.class));
             }
         });
 

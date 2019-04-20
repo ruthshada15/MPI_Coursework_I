@@ -1,9 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="30dp"
     tools:context=".Lay1Activity">
 
-</android.support.constraint.ConstraintLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="270dp"
+        android:src="@drawable/redav1"
+        />
+
+        <EditText
+            android:id="@+id/txtemail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:textSize="22sp"
+            android:background="@drawable/roundfield"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layout_marginTop="5dp"
+            />
+
+        <EditText
+            android:id="@+id/txtpassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:textSize="22sp"
+            android:background="@drawable/roundfield"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layout_marginTop="15dp"
+            />
+
+    <Button
+        android:id="@+id/btnlogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Log In"
+        android:textAllCaps="false"
+        android:textSize="23sp"
+        android:background="@drawable/roundbtn"
+        />
+
+    <com.google.android.gms.common.SignInButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+
+        >
+
+    </com.google.android.gms.common.SignInButton>
+
+    <LinearLayout
+        android:layout_width="400dp"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp"
+        >
+
+        <TextView
+            android:layout_width="180dp"
+            android:layout_height="50dp"
+            android:text="Don't Have an account?"
+            android:textAlignment="center"
+            android:textSize="17sp"
+            android:layout_marginLeft="40dp"/>
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:text="Sign Up"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp"
+
+            />
+
+    </LinearLayout>
+
+
+</LinearLayout>
