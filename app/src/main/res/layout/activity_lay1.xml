@@ -6,9 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/colorAccent"
-    android:padding="20dp"
-    tools:context="com.example.redaapp.WelcomeActivity">
+    android:padding="30dp"
+    tools:context=".Lay1Activity">
+
 
     <ImageView
         android:layout_width="match_parent"
@@ -16,34 +16,32 @@
         android:src="@drawable/redav1"
         />
 
-    <EditText
-        android:id="@+id/txtemail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint=" Email"
-        android:inputType="textEmailAddress"
-        android:textSize="22sp"
-        android:drawableLeft="@drawable/emailicon"
-        android:background="@drawable/roundfield"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:layout_marginTop="5dp"
-        />
+        <EditText
+            android:id="@+id/txtemail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:textSize="22sp"
+            android:background="@drawable/roundfield"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layout_marginTop="5dp"
+            />
 
-    <EditText
-        android:id="@+id/txtpassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint=" Password"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:textSize="22sp"
-        android:drawableLeft="@drawable/passicon"
-        android:background="@drawable/roundfield"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:layout_marginTop="15dp"
-        />
+        <EditText
+            android:id="@+id/txtpassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:textSize="22sp"
+            android:background="@drawable/roundfield"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layout_marginTop="15dp"
+            />
 
     <Button
         android:id="@+id/btnlogin"
@@ -57,7 +55,6 @@
         />
 
     <com.google.android.gms.common.SignInButton
-        android:id="@+id/googlesignin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -76,14 +73,13 @@
         <TextView
             android:layout_width="180dp"
             android:layout_height="50dp"
-            android:text="Don't have an account?"
+            android:text="Don't Have an account?"
             android:textAlignment="center"
             android:textSize="17sp"
-            android:layout_marginLeft="20dp"/>
+            android:layout_marginLeft="40dp"/>
 
         <TextView
-            android:id="@+id/btnsignup"
-            android:layout_width="80dp"
+            android:layout_width="100dp"
             android:layout_height="50dp"
             android:text="Sign Up"
             android:textAlignment="center"
